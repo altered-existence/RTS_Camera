@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityStandardAssets.CrossPlatformInput;
 
 namespace RTS_Cam
 {
@@ -35,7 +34,6 @@ namespace RTS_Cam
         #region Movement
         
         public bool is2d = false;
-        public bool isMobile = false;
         public float keyboardMovementSpeed = 5f; //speed with keyboard movement
         public float screenEdgeMovementSpeed = 3f; //spee with screen edge movement
         public float followingSpeed = 5f; //speed when following a target
@@ -114,22 +112,22 @@ namespace RTS_Cam
 
         private Vector2 KeyboardInput
         {
-            get { return useKeyboardInput ? new Vector2(CrossPlatformInputManager.GetAxis(horizontalAxis), CrossPlatformInputManager.GetAxis(verticalAxis)) : Vector2.zero; }
+            get { return useKeyboardInput ? new Vector2(Input.GetAxis(horizontalAxis), Input.GetAxis(verticalAxis)) : Vector2.zero; }
         }
 
         private Vector2 MouseInput
         {
-            get { return CrossPlatformInputManager.mousePosition; }
+            get { return Input.mousePosition; }
         }
 
         private float ScrollWheel
         {
-            get { return CrossPlatformInputManager.GetAxis(zoomingAxis); }
+            get { return Input.GetAxis(zoomingAxis); }
         }
 
         private Vector2 MouseAxis
         {
-            get { return new Vector2(CrossPlatformInputManager.GetAxis("Mouse X"), CrossPlatformInputManager.GetAxis("Mouse Y")); }
+            get { return new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")); }
         }
 
         private int ZoomDirection
