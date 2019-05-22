@@ -14,7 +14,7 @@ namespace RTS_Cam
 #if UNITY_EDITOR
 
         public int lastTab = 0;
-
+        public bool presetSettingsFoldout;
         public bool movementSettingsFoldout;
         public bool zoomingSettingsFoldout;
         public bool rotationSettingsFoldout;
@@ -32,8 +32,14 @@ namespace RTS_Cam
         
         public bool useFixedUpdate = false; //use FixedUpdate() or Update()        
 
+        #region Presets
+        public bool RTSCameraDefault = true;
+        public bool UnityEditorStyle = false;
+        public bool ClassicRTSStyle = false;
+        #endregion
+
         #region Movement
-        
+
         public bool is2d = false;
         public bool isMobile = false;
         public float keyboardMovementSpeed = 5f; //speed with keyboard movement
@@ -361,6 +367,21 @@ namespace RTS_Cam
             return 0f;
         }
 
+        #endregion
+
+        #region PresetsMethods
+        void SetPresetRTSCameraDefault()
+        {
+
+        }
+        void SetPresetUnityEditorStyle()
+        {
+
+        }
+        void SetPresetClassicRTSStyle()
+        {
+
+        }
         #endregion
     }
 }
