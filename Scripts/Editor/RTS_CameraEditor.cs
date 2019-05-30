@@ -15,6 +15,7 @@ namespace RTS_Cam
         {
             tabs = new TabsBlock(new Dictionary<string, System.Action>() 
             {
+                {"Presets", PresetsTab},
                 {"Movement", MovementTab},
                 {"Rotation", RotationTab},
                 {"Height", HeightTab}
@@ -32,7 +33,25 @@ namespace RTS_Cam
             EditorUtility.SetDirty(camera);
         }
 
-        private void MovementTab()
+        private void PresetsTab()
+        {
+            using (new HorizontalBlock())
+            {
+                GUILayout.Label("RTS Camera Default");
+                camera.RTSCameraDefault = EditorGUILayout.Toggle(camera.RTSCameraDefault);
+            }
+            using (new HorizontalBlock())
+            {
+                GUILayout.Label("Unity Editor Style");
+                camera.UnityEditorStyle = EditorGUILayout.Toggle(camera.UnityEditorStyle);
+            }
+            using (new HorizontalBlock())
+            {
+                GUILayout.Label("Classic RTS Style");
+                camera.ClassicRTSStyle = EditorGUILayout.Toggle(camera.ClassicRTSStyle);
+            }
+        }
+            private void MovementTab()
         {
             using (new HorizontalBlock())
             {
